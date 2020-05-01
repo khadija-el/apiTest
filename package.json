@@ -1,0 +1,21 @@
+{
+  "name": "api_angular",
+  "version": "1.0.0",
+  "description": "git init\r git add .\r git commit -m \"myel\"\r git remote add origin https://github.com/khadija-el/apiTest.git\r git push -u origin master",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git add . && git commit -m \"myel\" && git push -u origin master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khadija-el/apiTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khadija-el/apiTest/issues"
+  },
+  "homepage": "https://github.com/khadija-el/apiTest#readme"
+}

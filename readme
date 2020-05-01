@@ -1,0 +1,9 @@
+git init
+git add .
+git commit -m "myel"
+git remote add origin https://github.com/khadija-el/apiTest.git
+git push -u origin master
+
+# start new project dotnet
+dotnet new api
+
