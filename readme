@@ -7,3 +7,6 @@ git push -u origin master
 # start new project dotnet
 dotnet new api
 
+# start the project
+dotnet watch run
+
