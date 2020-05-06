@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/khadija-el/apiTest/issues"
   },
-  "homepage": "https://github.com/khadija-el/apiTest#readme"
+  "homepage": "https://github.com/khadija-el/apiTest#readme",
+  "dependencies": {
+    "@angular/material": "^9.2.2",
+    "bootstrap": "^4.4.1"
+  }
 }

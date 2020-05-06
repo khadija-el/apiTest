@@ -9,4 +9,5 @@ dotnet new api
 
 # start the project
 dotnet watch run
-
+git
+npm run push
