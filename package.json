@@ -4,8 +4,11 @@
   "description": "git init\r git add .\r git commit -m \"myel\"\r git remote add origin https://github.com/khadija-el/apiTest.git\r git push -u origin master",
   "main": "index.js",
   "scripts": {
+    "f":"cd angular && ng s",
+    "b":"cd angular && ng build --prod",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "git add . && git commit -m \"myel\" && git push -u origin master"
+    "push": "git add . && git commit -m \"myel\" && git push -u origin master",
+    "el": "npm run b && npm run push"
   },
   "repository": {
     "type": "git",

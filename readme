@@ -10,4 +10,16 @@ dotnet new api
 # start the project
 dotnet watch run
 git
+dans le dossier angular 
+ng build --prod
+apres
+dans le dossier parent
 npm run push
+
+# add materila to angular
+npm install --save @angular/material @angular/cdk @angular/animations hammerjs
+ng add @angular/material
+
+npm i bootstrap-css-only
+
+machi normal dakechi
