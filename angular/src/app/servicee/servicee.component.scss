@@ -1,0 +1,33 @@
+.container-fluid{
+  height: 60%;
+  background-color: rosybrown;
+  display: flex;
+  justify-content: center;
+}
+
+
+.example-card {
+  // max-width: 500px;
+  width: 200px;
+  margin: 5px;
+  background-color:rgb(187, 197, 207);
+
+  .header-card{
+     margin-left: 12%;
+  }
+  .mat-card-content {
+
+    text-align:center;
+
+
+
+  }
+}
+h2{
+  // text-align: center;
+  margin-left: 26%;
+  padding-top: 2%;
+
+}
+
+
