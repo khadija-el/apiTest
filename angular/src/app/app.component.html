@@ -1,4 +1,18 @@
-<app-header></app-header>
-<app-about></app-about>
-<app-servicee></app-servicee>
+<div class="header">
+
+  <a class="logo" href="#">PortFolio</a>
+<nav>
+<ul class="nav__links">
+
+  <li class="active"><a [routerLink]="['home']">Home</a></li>
+  <li><a [routerLink]="['about']">About</a></li>
+  <li><a [routerLink]="['services']">Services</a></li>
+  <li><a href="#">Resume</a></li>
+  <li><a href="#">Blog</a></li>
+
+</ul>
+</nav>
+<a  class="cta" [routerLink]="['contact']"><button>Contactez-moi</button></a>
+</div>
+
 <router-outlet></router-outlet>

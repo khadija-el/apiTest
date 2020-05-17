@@ -1,33 +1,36 @@
 .container-fluid{
-  height: 60%;
-  background-color: rosybrown;
+  height: 80%;
+  background-color: steelblue;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+
+}
+.row{
+  // display: flex;
+  // flex-wrap: nowrap;
+  height: 200px;
+  width: 900px;
+
+  .col-sm-4{
+    background-color: steelblue;
+
+    padding: 10px;
+    text-align: center;
+   .p{
+     padding: 5px;
+   }
+
+  }
+}
+.example-card{
+  background-color: rgb(157, 166, 175);
+  padding-bottom: 20px;
 }
 
-
-.example-card {
-  // max-width: 500px;
-  width: 200px;
-  margin: 5px;
-  background-color:rgb(187, 197, 207);
-
-  .header-card{
-     margin-left: 12%;
-  }
-  .mat-card-content {
-
-    text-align:center;
-
-
-
-  }
-}
 h2{
-  // text-align: center;
-  margin-left: 26%;
-  padding-top: 2%;
-
+  padding-top: 1%;
 }
-
 

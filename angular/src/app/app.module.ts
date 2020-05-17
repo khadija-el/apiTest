@@ -8,13 +8,17 @@ import { MatModule } from './mat.material';
 import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { ServiceeComponent } from './servicee/servicee.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AboutComponent,
-    ServiceeComponent
+    ServiceeComponent,
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
