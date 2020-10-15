@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import { ServiceeComponent } from './servicee/servicee.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { BlogComponent } from './blog/blog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     ServiceeComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatModule
+    MatModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

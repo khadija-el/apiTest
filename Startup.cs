@@ -33,6 +33,24 @@ namespace api_angular
                 // options.UseSqlServer(Configuration.GetConnectionString("db"));
                 options.UseSqlite(Configuration.GetConnectionString("sqlite"));
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder
+                   .WithOrigins(
+                       "http://localhost:4201",
+                       "http://localhost:4200",
+                       "http://192.168.1.25:4202",
+                       "http://192.168.43.238:4202"
+                       )
+                           // .AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowCredentials();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +75,7 @@ namespace api_angular
   
             }
 
-           
+           app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
 
             app.UseRouting();

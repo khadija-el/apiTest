@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { ServiceeComponent } from './servicee/servicee.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: { state: 'connection' } },
   { path: 'services', component: ServiceeComponent, data: { state: 'connection' } },
   { path: 'contact', component: ContactComponent, data: { state: 'connection' } },
+  { path: 'blog', component: BlogComponent, data: { state: 'blog' } },
 ];
 
 @NgModule({
