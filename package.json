@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "f":"cd angular && ng s",
-    "b":"cd angular && ng build --prod",
+    "b":"dotnet watch run",
+    "build":"cd angular && ng build --prod",
+    "m": "dotnet ef migrations add first && dotnet ef database drop -f && dotnet ef database update && dotnet watch run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "push": "git add . && git commit -m \"myel\" && git push -u origin master",
-    "el": "npm run b && npm run push"
+    "el": "npm run build && npm run push"
   },
   "repository": {
     "type": "git",
