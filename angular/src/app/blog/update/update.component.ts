@@ -15,7 +15,6 @@ export class UpdateComponent implements OnInit, OnDestroy {
   myForm: FormGroup;
   o: Blog;
   title = '';
-  /*{imagesInit}*/
 
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any
     , private fb: FormBuilder, private service: BlogService) { }
@@ -26,8 +25,6 @@ export class UpdateComponent implements OnInit, OnDestroy {
     this.createForm();
 
   }
-
-
 
   onNoClick(): void {
     this.dialogRef.close();

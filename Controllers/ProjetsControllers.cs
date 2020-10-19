@@ -9,41 +9,39 @@ namespace api_angular.Models
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class BlogsController: ControllerBase
+    public class ProjetsController: ControllerBase
     {
         protected readonly MyContext _context;
-        public BlogsController(MyContext context)
+        public ProjetsController(MyContext context)
         { 
             _context = context;
         }
 
-        
-        [HttpGet("{startIndex}/{pageSize}/{sortBy}/{sortDir}/{titre}")]
-        public virtual async Task<IActionResult> GetAll(int startIndex, int pageSize, string sortBy, string sortDir,string titre)
+        [HttpGet("{startIndex}/{pageSize}/{sortBy}/{sortDir}/{nom}")]
+        public virtual async Task<IActionResult> GetAll(int startIndex, int pageSize, string sortBy, string sortDir,string nom)
         {
-            var list = await _context.Blogs
-                .Where(e=> titre == "*" ? true : e.Titre.Contains(titre))
-                .OrderByName<Blog>(sortBy, sortDir == "desc")
+            var list = await _context.Projets
+                .Where(e=> nom == "*" ? true : e.Nom.Contains(nom))
+                .OrderByName<Projet>(sortBy, sortDir == "desc")
                 .Skip(startIndex)
                 .Take(pageSize)
                 .ToListAsync()
                 ;
-            int count = await _context.Set<Blog>().CountAsync();
+            int count = await _context.Set<Projet>().CountAsync();
 
             return Ok(new { list = list, count = count });
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Blog>>> Get()
+        public async Task<ActionResult<IEnumerable<Projet>>> Get()
         {
-            return await _context.Blogs.OrderByName<Blog>("Id").ToListAsync();
+            return await _context.Projets.OrderByName<Projet>("Id").ToListAsync();
         }
 
-
         [HttpPost]
-        public virtual async Task<ActionResult<Blog>> Post(Blog model)
+        public virtual async Task<ActionResult<Projet>> Post(Projet model)
         {
-            _context.Blogs.Add(model);
+            _context.Projets.Add(model);
 
             try
             {
@@ -60,13 +58,13 @@ namespace api_angular.Models
         [HttpDelete("{id}")]
         public virtual async Task<ActionResult> Delete(int id)
         {
-            var model = await _context.Blogs.FindAsync(id);
+            var model = await _context.Projets.FindAsync(id);
             if (model == null)
             {
                 return NotFound();
             }
 
-            _context.Blogs.Remove(model);
+            _context.Projets.Remove(model);
             try
             {
                 await _context.SaveChangesAsync();
@@ -81,7 +79,7 @@ namespace api_angular.Models
 
 
         [HttpPut("{id}")]
-        public virtual async Task<IActionResult> Put([FromRoute] int id, [FromBody] Blog model)
+        public virtual async Task<IActionResult> Put([FromRoute] int id, [FromBody] Projet model)
         {
 
             _context.Entry(model).State = EntityState.Modified;

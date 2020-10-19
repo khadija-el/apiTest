@@ -19,5 +19,19 @@ namespace api_angular.Models
             modelBuilder.Entity<Blog>().HasData(faker.Generate(10));
             return modelBuilder;
         }
+
+        public static ModelBuilder Projets(this ModelBuilder modelBuilder)
+        {
+            int id = 1;
+            var faker = new Faker<Projet>(DataSeeding.lang)
+                .CustomInstantiator(f => new Projet { Id = id++ })
+                .RuleFor(o => o.Nom, f => f.Lorem.Word())
+                .RuleFor(o=> o.Description, f=> f.Lorem.Sentence())
+                .RuleFor(o=> o.Date, f=> f.Date.Soon())
+                .RuleFor(o=> o.ImageUrl, f=> f.Image.PicsumUrl())
+                ;
+            modelBuilder.Entity<Projet>().HasData(faker.Generate(10));
+            return modelBuilder;
+        }
     }
 }

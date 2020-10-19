@@ -4,10 +4,11 @@
   "description": "git init\r git add .\r git commit -m \"myel\"\r git remote add origin https://github.com/khadija-el/apiTest.git\r git push -u origin master",
   "main": "index.js",
   "scripts": {
-    "f":"cd angular && ng s",
-    "b":"dotnet watch run",
-    "build":"cd angular && ng build --prod",
-    "m": "dotnet ef migrations add first && dotnet ef database drop -f && dotnet ef database update && dotnet watch run",
+    "f": "cd angular && ng s",
+    "b": "dotnet watch run",
+    "build": "cd angular && ng build --prod",
+    "m": "dotnet ef migrations add first && dotnet ef database update && dotnet watch run",
+    "m0": "dotnet ef migrations add first && dotnet ef database drop -f && dotnet ef database update && dotnet watch run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "push": "git add . && git commit -m \"myel\" && git push -u origin master",
     "el": "npm run build && npm run push"
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/khadija-el/apiTest#readme",
   "dependencies": {
     "@angular/material": "^9.2.2",
-    "bootstrap": "^4.4.1"
+    "bootstrap": "^4.4.1",
+    "moment": "^2.29.1"
   }
 }

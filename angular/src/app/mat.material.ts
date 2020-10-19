@@ -64,7 +64,6 @@ import {MatTreeModule} from '@angular/material/tree';
     MatChipsModule,
     MatStepperModule,
     MatDatepickerModule,
-    MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
@@ -90,6 +89,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
+    MatDialogModule,
   ],
   imports: [
     CommonModule,

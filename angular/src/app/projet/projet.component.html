@@ -2,7 +2,7 @@
 
 <div class="d-flex flex-row-reverse pt-3 mb-3">
   <button mat-raised-button color="primary" (click)="add()">
-    <mat-icon>add</mat-icon> Ville
+    <mat-icon>add</mat-icon> Projets
   </button>
   <!-- &nbsp;
   <button mat-raised-button color="accent" (click)="generateExcel()">
@@ -27,8 +27,8 @@
     <div class="mt-2">
 
       <mat-form-field appearance="fill" class="col-md-6">
-        <mat-label>titre</mat-label>
-        <input matInput [formControl]="titre" required>
+        <mat-label>nom</mat-label>
+        <input matInput [formControl]="nom" required>
       </mat-form-field>
     </div>
 
@@ -46,7 +46,6 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-
 <div class="example-container mat-elevation-z8 mt-2 mt-2">
   <div class="example-loading-shade" *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
@@ -54,9 +53,35 @@
   <div class="example-table-container">
     <table mat-table #table [dataSource]="dataSource" multiTemplateDataRows aria-label="Elements" matSort>
 
-      <ng-container matColumnDef="titre">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Titre</th>
-        <td mat-cell *matCellDef="let row">{{row.titre}}</td>
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+        <td mat-cell *matCellDef="let row">{{row.nom}}</td>
+      </ng-container>
+      <ng-container matColumnDef="imageUrl">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>imageUrl</th>
+        <td mat-cell *matCellDef="let row">
+          <img [src]="row.imageUrl" alt="" style="width:50px;height:50px;">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>date</th>
+        <td mat-cell *matCellDef="let row">{{row.date | date:"yyy-MM-dd"}}</td>
+      </ng-container>
+      <ng-container matColumnDef="git">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>git</th>
+        <td mat-cell *matCellDef="let row">{{row.git}}</td>
+      </ng-container>
+      <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>url</th>
+        <td mat-cell *matCellDef="let row">{{row.url}}</td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>description</th>
+        <td mat-cell *matCellDef="let row">{{row.description}}</td>
+      </ng-container>
+      <ng-container matColumnDef="technologie">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>technologie</th>
+        <td mat-cell *matCellDef="let row">{{row.technologie}}</td>
       </ng-container>
       <ng-container matColumnDef="option" style="flex-direction: row-reverse;">
         <th mat-header-cell *matHeaderCellDef>
@@ -87,3 +112,4 @@
     [pageSizeOptions]="[10, 25, 50, 100, 250]" showFirstLastButtons>
   </mat-paginator>
 </div>
+

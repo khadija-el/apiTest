@@ -12,6 +12,11 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogComponent } from './blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateComponent } from './blog/update/update.component';
+import { DeleteComponent } from './components/delete/delete.component';
+import { ProjetComponent } from './projet/projet.component';
+import { UpdateProjetComponent } from './projet/update/update-projet/update-projet.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,11 @@ import { HttpClientModule } from '@angular/common/http';
     ServiceeComponent,
     HomeComponent,
     ContactComponent,
-    BlogComponent
+    BlogComponent,
+    UpdateComponent,
+    DeleteComponent,
+    ProjetComponent,
+    UpdateProjetComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,50 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>{{nom}}</span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <mat-dialog-content>
+      <form [formGroup]="myForm">
+        <mat-form-field appearance="fill" class="col-md-6">
+          <mat-label>imageUrl</mat-label>
+          <input matInput formControlName="imageUrl" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-md-6">
+            <mat-label>nom</mat-label>
+            <input matInput formControlName="nom" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-md-6">
+          <mat-label>date</mat-label>
+          <input matInput formControlName="date" required>
+        </mat-form-field>
+
+      <mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>git</mat-label>
+        <input matInput formControlName="git" required>
+      </mat-form-field>
+    <mat-form-field appearance="fill" class="col-md-6">
+      <mat-label>url</mat-label>
+      <input matInput formControlName="url" required>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="col-md-6">
+    <mat-label>description</mat-label>
+    <input matInput formControlName="description" required>
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="col-md-6">
+    <mat-label>technologie</mat-label>
+    <input matInput formControlName="technologie" required>
+</mat-form-field>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onNoClick()" type="button">Annuler</button>
+      <button mat-raised-button color="primary" (click)="onOkClick(myForm.value)" [disabled]="myForm.invalid" cdkFocusInitial>Enregistre</button>
+    </mat-dialog-actions>
+  </div>
+</div>
+
