@@ -1,23 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Projet } from '../models/model';
 
-const URL = 'http://localhost:5000/api/projets';
 @Injectable({
   providedIn: 'root'
 })
 export class ProjetService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject('API_URL') private urlApi: string) { }
 
   getAll(startIndex, pageSize, sortBy, sortDir, nom ) {
 
-    return this.http.get(`${URL}/getAll/${startIndex}/${pageSize}/${sortBy}/${sortDir}/${nom}`);
+    return this.http.get(`${this.urlApi}/projets/getAll/${startIndex}/${pageSize}/${sortBy}/${sortDir}/${nom}`);
   }
 
-  getOne = (id) => this.http.get<Projet>(`${URL}/get/${id}`);
-  post = (o: Projet) => this.http.post<Projet>(`${URL}/post`, o);
-  put = (id: number | string, o: Projet) => this.http.put<any>(`${URL}/put/${id}`, o);
-  delete = (id) => this.http.delete<any>(`${URL}/delete/${id}`);
+  getOne = (id) => this.http.get<Projet>(`${this.urlApi}/projets/get/${id}`);
+  post = (o: Projet) => this.http.post<Projet>(`${this.urlApi}/projets/post`, o);
+  put = (id: number | string, o: Projet) => this.http.put<any>(`${this.urlApi}/projets/put/${id}`, o);
+  delete = (id) => this.http.delete<any>(`${this.urlApi}/projets/delete/${id}`);
 
 }
