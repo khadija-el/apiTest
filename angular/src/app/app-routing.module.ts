@@ -1,23 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { AboutComponent } from './about/about.component';
-import { ServiceeComponent } from './servicee/servicee.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { BlogComponent } from './blog/blog.component';
-import { ProjetComponent } from './projet/projet.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, data: { state: 'connection' } },
-  { path: 'header', component: HeaderComponent, data: { state: 'connection' } },
-  { path: 'about', component: AboutComponent, data: { state: 'connection' } },
-  { path: 'services', component: ServiceeComponent, data: { state: 'connection' } },
-  { path: 'contact', component: ContactComponent, data: { state: 'connection' } },
-  { path: 'blog', component: BlogComponent, data: { state: 'blog' } },
-  { path: 'projet', component: ProjetComponent, data: { state: 'projet' } },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'accueil', loadChildren: () => import('./accueil/accueil.module').then(m => m.AccueilModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 ];
 
 @NgModule({

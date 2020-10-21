@@ -60,8 +60,8 @@ namespace api_angular
             {
                 app.UseDeveloperExceptionPage();
             }
-             else
-            {
+            //  else
+            // {
                app.Use(async (context, next) =>
                 {
                     await next();
@@ -73,7 +73,7 @@ namespace api_angular
                     }
                 });
   
-            }
+            // }
 
            app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();

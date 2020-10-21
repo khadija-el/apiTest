@@ -1,26 +1,25 @@
-
 import { Component, OnInit, ViewChild, EventEmitter, Inject, OnDestroy } from '@angular/core';
 import { merge, Subscription, Subject } from 'rxjs';
+import { UpdateComponent } from './update/update.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { startWith } from 'rxjs/operators';
-import { DeleteService } from '../components/delete/delete.service';
-import { Projet } from '../models/model';
-import { ProjetService } from '../services/projet.service';
-import { UpdateProjetComponent } from './update/update-projet/update-projet.component';
+import { DeleteService } from 'src/app/components/delete/delete.service';
+import { Blog } from 'src/app/models/model';
+import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
-  selector: 'app-projet',
-  templateUrl: './projet.component.html',
-  styleUrls: ['./projet.component.scss']
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.scss']
 })
-export class ProjetComponent implements OnInit {
+
+export class BlogComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
   update = new EventEmitter();
   isLoadingResults = true;
   resultsLength = 0;
@@ -28,24 +27,18 @@ export class ProjetComponent implements OnInit {
 
   subs: Subscription[] = [];
 
-  dataSource: Projet[] = [];
-  displayedColumns = [ 'imageUrl','nom', 'date', 'git', 'url', 'description', 'technologie', 'option'];
+  dataSource: Blog[] = [];
+  displayedColumns = ['titre', 'option'];
 
   panelOpenState = false;
 
-  nom = new FormControl('');
-  date = new FormControl('');
-  imageUrl = new FormControl('');
-  git = new FormControl('');
-  url = new FormControl('');
-  technologie = new FormControl('');
-  description = new FormControl('');
+  titre = new FormControl('');
 
-  constructor(public service: ProjetService, public dialog: MatDialog
+  constructor(public service: BlogService, public dialog: MatDialog
     , private mydialog: DeleteService) {
   }
-  ngOnInit(): void {
 
+  ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
       r => {
         r === true ? this.paginator.pageIndex = 0 : r = r;
@@ -57,7 +50,7 @@ export class ProjetComponent implements OnInit {
           this.paginator.pageSize,
           this.sort.active ? this.sort.active : 'id',
           this.sort.direction ? this.sort.direction : 'desc',
-          this.nom.value === '' ? '*' : this.nom.value,
+          this.titre.value === '' ? '*' : this.titre.value,
         );
       }
     );
@@ -65,7 +58,7 @@ export class ProjetComponent implements OnInit {
   }
 
   reset() {
-    this.nom.setValue('');
+    this.titre.setValue('');
     this.update.next(true);
   }
 
@@ -73,8 +66,8 @@ export class ProjetComponent implements OnInit {
     this.update.next(true);
   }
 
-  getPage(startIndex, pageSize, sortBy, sortDir, nom) {
-    const sub = this.service.getAll(startIndex, pageSize, sortBy, sortDir, nom).subscribe(
+  getPage(startIndex, pageSize, sortBy, sortDir, titre) {
+    const sub = this.service.getAll(startIndex, pageSize, sortBy, sortDir, titre).subscribe(
       (r: any) => {
         console.log(r);
         this.dataSource = r.list;
@@ -86,8 +79,8 @@ export class ProjetComponent implements OnInit {
     this.subs.push(sub);
   }
 
-  openDialog(o: Projet, text, bool) {
-    const dialogRef = this.dialog.open(UpdateProjetComponent, {
+  openDialog(o: Blog, text, bool) {
+    const dialogRef = this.dialog.open(UpdateComponent, {
       width: '1100px',
       disableClose: true,
       data: { model: o, title: text, visualisation: bool }
@@ -96,17 +89,16 @@ export class ProjetComponent implements OnInit {
     return dialogRef.afterClosed();
   }
 
-
   add() {
-    this.openDialog(new Projet(), `Ajouter Projet`, false).subscribe(result => {
+    this.openDialog(new Blog(), `Ajouter blog`, false).subscribe(result => {
       if (result) {
         this.update.next(true);
       }
     });
   }
 
-  edit(o: Projet) {
-    this.openDialog(o, `Modifier Projet`, false).subscribe((result: Projet) => {
+  edit(o: Blog) {
+    this.openDialog(o, `Modifier blog`, false).subscribe((result: Blog) => {
       if (result) {
         this.update.next(true);
       }
@@ -114,7 +106,7 @@ export class ProjetComponent implements OnInit {
   }
 
   async delete(id: number) {
-    const r = await this.mydialog.openDialog('Projet').toPromise();
+    const r = await this.mydialog.openDialog('Blog').toPromise();
     if (r === 'ok') {
       const sub = this.service.delete(id).subscribe(() => this.update.next(true));
       this.subs.push(sub);
@@ -132,3 +124,5 @@ export class ProjetComponent implements OnInit {
   }
 
 }
+
+
