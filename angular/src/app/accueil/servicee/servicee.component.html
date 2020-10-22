@@ -1,88 +1,21 @@
-  <div class="container-fluid bg-3 text-center">
-    <h2>Services</h2><br>
-    <div class="row">
-      <div class="col-sm-4">
-        <mat-card class="example-card" >
-          <mat-card-content class="mat-card-content">
-           <img src="../../assets/322484-20.png" class=".img-rounded " style="width:20%" alt="Image">
-           <h3>WEB DESIGNER</h3>
-           <p>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
-              Le Lorem Ipsum est </p>
-          </mat-card-content>
-         </mat-card>
+  <div class="items">
+    <mat-card class="example-card" *ngFor="let e of list;let i=index">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image" [style.background-image]="'url('+ e.imageUrl+ ')'"></div> -->
+        <mat-card-subtitle> {{ e.nom ?  e.nom : '-'}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="e.imageUrl" alt="Photo of a Shiba Inu" style="width: 300px;height: 200px;">
+      <!-- <mat-card-content class="mat-card-content">
+        <h6>{{ e.description }}</h6>
+      </mat-card-content> -->
+      <mat-card-actions class="button">
+        <div class="d-flex flex-row-reverse w-100 pt-3 mb-3">
+          <button mat-raised-button color="primary">
+            <mat-icon>visibility</mat-icon> Detail
+          </button>
+         </div>
 
-      </div>
-      <div class="col-sm-4">
-        <mat-card class="example-card" >
-          <mat-card-content class="mat-card-content">
-           <img src="../../assets/322484-20.png" class="img-circle" style="width:20%" alt="Image">
-           <h3>WEB DESIGNER</h3>
-           <p>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
-              Le Lorem Ipsum est </p>
-          </mat-card-content>
-         </mat-card>
-      </div>
-      <div class="col-sm-4">
-        <mat-card class="example-card" >
-          <mat-card-content class="mat-card-content">
-           <img src="../../assets/322484-20.png" class="img-circle" style="width:20%" alt="Image">
-           <h3>WEB DESIGNER</h3>
-           <p>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
-              Le Lorem Ipsum est </p>
-          </mat-card-content>
-         </mat-card>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-sm-4">
-        <mat-card class="example-card" >
-          <mat-card-content class="mat-card-content">
-           <img src="../../assets/322484-20.png" class="img-circle" style="width:20%" alt="Image">
-           <h3>WEB DESIGNER</h3>
-           <p>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
-              Le Lorem Ipsum est </p>
-          </mat-card-content>
-         </mat-card>
-
-      </div>
-      <div class="col-sm-4">
-        <mat-card class="example-card" >
-          <mat-card-content class="mat-card-content">
-           <img src="../../assets/322484-20.png" class="img-circle" style="width:20%" alt="Image">
-           <h3>WEB DESIGNER</h3>
-           <p>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
-              Le Lorem Ipsum est </p>
-          </mat-card-content>
-         </mat-card>
-      </div>
-      <div class="col-sm-4">
-        <mat-card class="example-card" >
-          <mat-card-content class="mat-card-content">
-           <img src="../../assets/322484-20.png" class="img-circle" style="width:20%" alt="Image">
-           <h3>WEB DESIGNER</h3>
-           <p>Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
-              Le Lorem Ipsum est </p>
-          </mat-card-content>
-         </mat-card>
-      </div>
-
-    </div>
-
-  <!-- <div class="row">
-   <div class="col-md-4">
-    <mat-card class="example-card" >
-     <mat-card-header class="header-card">
-    <span class="glyphicon glyphicon-pencil">ffff</span>
-     </mat-card-header>
-
-     <mat-card-content class="mat-card-content">
-      <p>Le Lorem Ipsum est simplement  impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,</p>
-     </mat-card-content>
-
+      </mat-card-actions>
     </mat-card>
-   </div> -->
-
-  </div>
-
+    <ng-content></ng-content>
+    </div>

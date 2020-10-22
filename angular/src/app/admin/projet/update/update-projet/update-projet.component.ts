@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject, Subscription } from 'rxjs';
 import { Projet } from 'src/app/models/model';
@@ -13,31 +13,16 @@ import { ProjetService } from 'src/app/services/projet.service';
 export class UpdateProjetComponent implements OnInit {
 
   subs: Subscription[] = [];
-
+  titile = '';
   myForm: FormGroup;
   o: Projet;
-  nom = '';
-  date = '';
-  imageUrl = '';
-  git = '';
-  url = '';
-  description = '';
-  technologie = '';
-
 
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any
                                , private fb: FormBuilder, private service: ProjetService) { }
 
   async ngOnInit() {
     this.o = this.data.model;
-    this.nom = this.data.nom;
-    this.date = this.data.date;
-    this.imageUrl = this.data.imageUrl;
-    this.git = this.data.git;
-    this.url = this.data.url;
-    this.description = this.data.description;
-    this.technologie = this.data.technologie;
-
+    this.titile = this.data.title;
     this.createForm();
   }
 

@@ -1,7 +1,7 @@
 <div class="dialog">
   <h1 mat-dialog-title>
     <mat-toolbar role="toolbar" class="task-header">
-      <span>{{nom}}</span>
+      <span>{{titile}}</span>
     </mat-toolbar>
     <mat-divider></mat-divider>
   </h1>
@@ -20,7 +20,9 @@
 
         <mat-form-field appearance="fill" class="col-md-6">
           <mat-label>date</mat-label>
-          <input matInput formControlName="date" required>
+          <input matInput [matDatepicker]="dp3" formControlName="date" placeholder="Date" />
+          <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+          <mat-datepicker #dp3></mat-datepicker>
         </mat-form-field>
 
       <mat-form-field appearance="fill" class="col-md-6">
@@ -39,6 +41,7 @@
     <mat-label>technologie</mat-label>
     <input matInput formControlName="technologie" required>
 </mat-form-field>
+{{myForm.value | json}}
       </form>
     </mat-dialog-content>
     <mat-dialog-actions align="end">

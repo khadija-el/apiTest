@@ -22,7 +22,7 @@ export class Projet {
   id = 0;
   nom = '';
   imageUrl = '';
-  date = '';
+  date =  new Date();
   git = '';
   url = '';
   description = '';

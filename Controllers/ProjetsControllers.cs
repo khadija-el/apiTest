@@ -33,9 +33,15 @@ namespace api_angular.Models
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Projet>>> Get()
+        public async Task<ActionResult<IEnumerable<Projet>>> GetOne()
         {
             return await _context.Projets.OrderByName<Projet>("Id").ToListAsync();
+        }
+
+         [HttpGet]
+        public async Task<ActionResult<IEnumerable<Projet>>> Get()
+        {
+            return await _context.Projets.ToListAsync();
         }
 
         [HttpPost]
