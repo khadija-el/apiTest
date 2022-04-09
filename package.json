@@ -27,6 +27,6 @@
   "dependencies": {
     "@angular/material": "^9.2.2",
     "bootstrap": "^4.4.1",
-    "moment": "^2.29.1"
+    "moment": "^2.29.2"
   }
 }
